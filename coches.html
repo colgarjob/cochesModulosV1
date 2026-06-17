@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Coches</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚙 Gestión de Coches</h1>
+            <nav class="sub-nav">
+                <a href="index.html">← Inicio</a>
+                <a href="marcas.html">Gestionar Marcas</a>
+            </nav>
+        </header>
+
+        <div id="errorContainer" class="error-container hidden"></div>
+
+        <div class="form-section">
+            <h2 id="formTitle">➕ Nuevo Coche</h2>
+            <p class="form-hint">La marca se elige en la lista desplegable. Si está vacía, créalas primero en <a href="marcas.html">Gestión de Marcas</a>.</p>
+            <form id="cocheForm">
+                <input type="hidden" id="cocheId" name="id" value="">
+                
+                <div class="form-group">
+                    <label for="marca_id">Marca *</label>
+                    <select id="marca_id" name="marca_id" required>
+                        <option value="">Seleccione una marca</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="modelo">Modelo *</label>
+                    <input type="text" id="modelo" name="modelo" required maxlength="100" placeholder="Ej: Corolla">
+                </div>
+
+                <div class="form-group">
+                    <label for="anio">Año</label>
+                    <input type="number" id="anio" name="anio" min="1900" max="2026" placeholder="Ej: 2022">
+                </div>
+
+                <div class="form-group">
+                    <label for="precio">Precio (€)</label>
+                    <input type="number" id="precio" name="precio" step="0.01" min="0" placeholder="Ej: 25000">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">💾 Guardar</button>
+                    <button type="button" id="cancelBtn" class="btn-secondary">❌ Cancelar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="list-section">
+            <h2>📋 Lista de Coches</h2>
+            <table id="cochesTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Año</th>
+                        <th>Precio (€)</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="cochesTableBody">
+                    <tr><td colspan="6">Cargando coches...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="module" src="js/modules/coches/cochesUI.js"></script>
+</body>
+</html>

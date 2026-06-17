@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Marcas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏭 Gestión de Marcas</h1>
+            <nav class="sub-nav">
+                <a href="index.html">← Inicio</a>
+                <a href="coches.html">Gestionar Coches</a>
+            </nav>
+        </header>
+
+        <div id="errorContainer" class="error-container hidden"></div>
+
+        <div class="form-section">
+            <h2 id="formTitle">➕ Nueva Marca</h2>
+            <p class="form-hint">Escribe aquí los datos de la marca en los campos de texto de abajo (no en la tabla).</p>
+            <form id="marcaForm">
+                <input type="hidden" id="marcaId" name="id" value="">
+                
+                <div class="form-group">
+                    <label for="nombre">Nombre de la marca *</label>
+                    <input type="text" id="nombre" name="nombre" required maxlength="50" placeholder="Ej: Toyota" autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="pais">País de origen</label>
+                    <input type="text" id="pais" name="pais" maxlength="50" placeholder="Ej: Japón">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">💾 Guardar</button>
+                    <button type="button" id="cancelBtn" class="btn-secondary">❌ Cancelar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="list-section">
+            <h2>📋 Lista de Marcas</h2>
+            <table id="marcasTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>País</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="marcasTableBody">
+                    <tr><td colspan="4">Cargando marcas...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="module" src="js/modules/marcas/marcasUI.js"></script>
+</body>
+</html>
